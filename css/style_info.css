@@ -1,0 +1,229 @@
+:root {
+    --pBlack: #242424;
+    --pWhite: #FFFFFF;
+    --pLightGray: #dfdfdf;
+    --pDarkGray: #333333;
+    --pTransDarkGray: rgba(20, 20, 20, .5);
+    --pTransLightGray: rgba(255, 255, 255, 0.5);
+    --pYellow: #FFDE00;
+    --pRed: #FF0000;
+    --pRadius: 20px;
+    --pLineWith: 3px;
+}
+
+.light-theme {
+    background-color: var(--pLightGray);
+}
+
+.dark-theme {
+    background-color: var(--pDarkGray);
+    color: var(--pWhite)
+}
+
+.light-theme a, .dark-theme a {
+    color: var(--pYellow);
+}
+
+body {
+    background: url(../resources/background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Calibri, Arial, Sans-serif;
+}
+
+header {
+    color: var(--pBlack);
+    height: 15rem;
+    min-height: 10rem;
+    text-align: center;
+    border-bottom: var(--pLineWith) solid var(--pYellow);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+header .title {
+    background: url(../resources/pokedex_title.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20rem;
+    height: 7rem;
+    margin: auto;
+    cursor: pointer;
+}
+
+header .change-theme {
+    align-self: end;
+    justify-self: end;
+}
+
+header .change-theme .change-theme-button {
+    background-color: var(--pWhite);
+    width: 4rem;
+    height: 4rem;
+    margin: 1rem;
+    border-radius: 50%;
+    transition: background-color 1s ease;
+}
+
+header .change-theme-button:hover {
+    background-color: var(--pBlack);
+    cursor: pointer;
+}
+
+.sun {
+    width: 60%;
+    margin-top: 20%;
+}
+
+/* MAIN */
+
+.main {
+    width: 95vw;
+    height: 45rem;
+    margin: auto;
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.main .info-card {
+    width: 50rem;
+    height: auto;
+    max-height: 30rem;
+    margin: auto;
+    padding: 2rem;
+    border-radius: var(--pRadius);
+    box-shadow: 0px 0px 15px 1px var(--pBlack);
+    display: flex;
+    align-items: start;
+    font-family: Handjet, Calibri, Sans-serif;
+}
+
+.main .info-card .poke-main-data {
+    width: 10rem;
+    margin: 0 auto;
+}
+
+.main .info-card .poke-main-data .poke-name {
+    margin-bottom: 1rem;
+    border-bottom: var(--pLineWith) solid var(--pRed);
+}
+
+.main .info-card .poke-main-data img {
+    min-width: 10rem;
+    margin-bottom: 1rem;
+}
+
+.main .info-card .poke-main-data .poke-type {
+    background-color: var(--pTransDarkGray);
+    padding: .5rem;
+    text-align: center;
+    border-radius: var(--pRadius);
+    min-height: 3rem;
+    overflow: scroll;
+}
+
+.main .info-card .poke-side-data {
+    margin: auto auto auto 2rem;
+    flex-grow: 1;
+}
+
+.main .info-card .poke-side-data .data {
+    background-color: var(--pTransDarkGray);
+    margin: 3rem 0;
+    padding: .5rem;
+    border-radius: var(--pRadius);
+}
+
+footer {
+    color: var(--pBlack);
+    height: 15rem;
+    text-align: center;
+    border-top: var(--pLineWith) solid var(--pYellow);
+}
+
+footer h2, footer h3, footer a {
+    margin: 1rem;
+    text-decoration: none;
+}
+
+a:hover {
+    text-shadow: 0px 0px 5px var(--pYellow);
+}
+
+.poke-type::-webkit-scrollbar {
+    width: 0;
+   }
+
+/* SCROLLBAR */
+
+body::-webkit-scrollbar {
+    background-color: var(--pWhite);
+    width: .7rem;
+    border-radius: var(--pRadius);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--pTransDarkGray);
+    border-radius: var(--pRadius);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: var(--pBlack);
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 900px) {
+
+    body {
+        background-position: right;
+    }
+
+    header .change-theme .change-theme-button {
+        display: none;
+    }
+
+    header .title {
+        width: 12rem;
+        height: 5rem;
+    }
+
+    .main {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .main .info-card {
+        flex-direction: column;
+        width: 20rem;
+        min-width: 15rem;
+        max-height: none;
+        margin: auto;
+        padding: 2rem 1rem;
+        align-items: center;
+        text-align: center;
+        font-family: Handjet, Calibri, Sans-serif;
+    }
+
+    .main .info-card .poke-main-data {
+        background: var(--pTransLightGray);
+        width: 12rem;
+        margin: auto;
+        padding: 1rem;
+        border-radius: var(--pRadius);
+    }
+
+    .main .info-card .poke-side-data {
+        min-width: 12rem;
+        margin: auto;
+        padding: 0;
+    }
+
+}
+
+@media screen and (max-width: 300px) {
+    .main .info-card {
+        width: 15rem;
+    }
+}

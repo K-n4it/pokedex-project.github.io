@@ -1,0 +1,458 @@
+/* VARIABLES */
+
+:root {
+    --pBlack: #242424;
+    --pWhite: #ffffff;
+    --pLightGray: #dfdfdf;
+    --pDarkGray: #333333;
+    --pTransLightGray: rgba(255, 255, 255, 0.5);
+    --pTransDarkGray: rgba(20, 20, 20, .5);
+    --pYellow: #FFDE00;
+    --pRed: #FF0000;
+    --pBlue: #0070C0;
+    --pRadius: 20px;
+    --pLineWith: 3px;
+}
+
+/* GENERAL */
+
+.light-theme {
+    background-color: var(--pLightGray);
+}
+
+.dark-theme {
+    background-color: var(--pDarkGray);
+    color: var(--pWhite);
+}
+
+.light-theme a, .dark-theme a {
+    color: var(--pYellow);
+}
+
+body {
+    background: url(../resources/background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: Calibri, Arial, Sans-serif;
+}
+
+.main .msg {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    z-index: 1;
+}
+
+.main .msg .loader-container {
+    margin: 1rem;
+    border-radius: var(--pRadius);
+}
+
+.main .msg .loader {
+    border: 0.8rem solid var(--pLightGray);
+    border-top: 0.8rem solid var(--pRed);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    box-shadow: 0px 0px 5px 1px var(--pBlack);
+    animation: spin 1s linear infinite;
+  }
+
+.main .msg .error-msg {
+    align-self: center;
+    margin: 1rem 2rem;
+    padding: 1rem;
+    border-radius: var(--pRadius);
+}
+
+/* HEADER */
+
+header {
+    color: var(--pBlack);
+    height: 15rem;
+    min-height: 10rem;
+    text-align: center;
+    border-bottom: var(--pLineWith) solid var(--pYellow);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+header .side-menu-button {
+    display: none;
+}
+
+header .title {
+    background: url(../resources/pokedex_title.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 20rem;
+    height: 7rem;
+    margin: auto;
+    cursor: pointer;
+}
+
+header .change-theme {
+    align-self: end;
+    justify-self: end;
+}
+
+.change-theme-button {
+    background-color: var(--pWhite);
+    width: 4rem;
+    height: 4rem;
+    margin: 1rem;
+    border-radius: 50%;
+    transition: background-color 1s ease;
+}
+
+.change-theme-button:hover {
+    background-color: var(--pBlack);
+    cursor: pointer;
+}
+
+.sun, .arrow {
+    width: 60%;
+    margin-top: 20%;
+}
+
+/* MAIN */
+
+.main {
+    width: 95vw;
+    height: 45rem;
+    margin: auto;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+.main aside {
+    width: 10rem;
+}
+
+.main aside .generation-selection {
+    width: 6rem;
+    height: 24.5rem;
+    margin: 2rem;
+    padding: .5rem;
+    border: var(--pLineWith) solid var(--pRed);
+    border-radius: var(--pRadius);
+    box-shadow: 0px 0px 15px 1px var(--pBlack);
+    overflow-y: scroll;
+    display: grid;
+    grid-template-rows: 1fr;
+    row-gap: 1rem;
+    position: relative;
+}
+
+.generation-selection-header {
+    display: none;
+}
+
+.main aside .generation-selection .generations {
+    min-height: 5rem;
+    padding: .4rem;
+    border-radius: var(--pRadius);
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.main aside .generation-selection .generations img {
+    width: 3.2rem;
+}
+
+.main aside .generation-selection .generation-1 {
+    background: linear-gradient(to bottom right, #FF0000 35%, #0000FF 65%);
+}
+
+.main aside .generation-selection .generation-2 {
+    background: linear-gradient(to bottom right, #D2C21A 35%, #A0A0A0 65%);
+}
+
+.main aside .generation-selection .generation-3 {
+    background: linear-gradient(to bottom right, #B80000 35%, #0D00B8 65%);
+}
+
+.main aside .generation-selection .generation-4 {
+    background: linear-gradient(to bottom right, #6077FF 35%, #FC72E4 65%);
+}
+
+.main aside .generation-selection .generation-5 {
+    background: linear-gradient(to bottom right, #F2F2F2 35%, #424242 65%);
+}
+
+.main aside .generation-selection .generation-6 {
+    background: linear-gradient(to bottom right, #1F476C 35%, #D22B45 65%);
+}
+
+.main aside .generation-selection .generation-7 {
+    background: linear-gradient(to bottom right, #F5941D 35%, #B43DEB 65%);
+}
+
+.main aside .generation-selection .generation-8 {
+    background: linear-gradient(to bottom right, #00A0E9 35%, #E5005A 65%);
+}
+
+.main aside .generation-selection .indicator {
+    width: 3rem;
+    height: 3rem;
+    margin: auto;
+    border-radius: 50%;
+    text-align: center;
+    position: sticky;
+    bottom: 2%;
+    left: 0;
+    right: 0;
+    opacity: 0;
+}
+
+.main .pokemon-selection {
+    width: 70rem;
+    height: 80%;
+    padding: 0 2rem;
+    border-top: var(--pLineWith) solid var(--pRed);
+    border-bottom: var(--pLineWith) solid var(--pRed);
+    border-radius: var(--pRadius);
+    box-shadow: 0px 0px 15px 1px var(--pBlack);
+    display: grid;
+    /* grid-template-columns: repeat(4, 1fr); */
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    justify-items: center;
+    grid-gap: 1rem;
+    overflow-y: scroll;
+    font-family: Handjet, Calibri, Sans-serif;
+}
+
+.main .pokemon-selection .poke-container {
+    background: linear-gradient(
+        to bottom,
+        var(--pRed) 40%,
+        var(--pBlack) 40%,
+        var(--pBlack) 60%,
+        var(--pWhite) 60%
+        );
+    width: 14rem;
+    height: 14rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border: var(--pLineWith) solid var(--pBlack);
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px 1px var(--pBlack);
+    cursor: pointer;
+    position: relative;
+}
+
+.main .pokemon-selection .poke-container .poke-img {
+    width: 8rem;
+    height: 8rem;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.main .pokemon-selection .poke-container .poke-img:hover {
+    bottom: 15%;
+}
+
+.main .pokemon-selection .poke-container .poke-name {
+    width: auto;
+    color: var(--pYellow);
+    text-align: center;
+    font-size: 30px;
+    position: absolute;
+    bottom: 0%;
+    right: 20%;
+    transform: rotate(-.05turn);
+}
+
+.main .pokemon-selection .poke-container .circle {
+    background-color: var(--pBlack);
+    width: 5rem;
+    height: 5rem;
+    margin: 25% auto;
+    border-radius: 50%;
+    display: flex;
+}
+
+.main .pokemon-selection .poke-container .circle::before {
+    content: "";
+    background-color: var(--pWhite);
+    width: 2rem;
+    height: 2rem;
+    margin: auto;
+    border-radius: 50%;
+}
+
+footer {
+
+    height: 15rem;
+    text-align: center;
+    border-top: var(--pLineWith) solid var(--pYellow);
+}
+
+footer h2, footer h3, footer a {
+    margin: 1rem;
+    text-decoration: none;
+}
+
+a:hover {
+    text-shadow: 0px 0px 5px var(--pYellow);
+}
+
+/* SCROLLBAR */
+
+.pokemon-selection::-webkit-scrollbar, body::-webkit-scrollbar {
+    background-color: var(--pWhite);
+    width: .7rem;
+    border-radius: var(--pRadius);
+}
+
+.pokemon-selection::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+    background: var(--pTransDarkGray);
+    border-radius: var(--pRadius);
+}
+
+.pokemon-selection::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:hover {
+    background: var(--pBlack);
+}
+
+.generation-selection::-webkit-scrollbar {
+    width: 0;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes slide {
+    0% { left: -100vw; }
+    100% { left: 0; }
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 900px) {
+
+    header .side-menu-button {
+    position: fixed;
+    display: block;
+    z-index: 1;
+    }
+
+    .side-menu-button {
+        background-color: var(--pTransLightGray);
+        max-width: 4rem;
+        min-width: 3rem;
+        height: 4rem;
+        margin: 1rem;
+        padding: .5rem;
+        border-radius: var(--pRadius);
+        align-self: start;
+        cursor: pointer;
+    }
+
+    header .title {
+        width: 12rem;
+        height: 5rem;
+    }
+
+    header .change-theme-button {
+        display: none;
+    }
+
+    .main {
+        width: 100vw;
+        margin: auto;
+    }
+
+    .main aside {
+        width: 0;
+    }
+
+    .main aside .generation-selection {
+        width: 100vw;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 0%;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        box-shadow: none;
+        z-index: 2;
+    }
+
+    .hidden {
+        left: -100vw;
+    }
+
+    .main aside .generation-selection .generation-selection-header {
+        max-height: 10rem;
+        border-bottom: var(--pLineWith) solid var(--pYellow);
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 3rem;
+        text-align: center;
+        font-family: Handjet, Calibri, Sans-serif;
+        font-size: 2rem;
+    }
+
+    .main aside .generation-selection .generation-selection-header .change-theme-button {
+        min-width: 3rem;
+        max-width: 4rem;
+        min-height: 3rem;
+        max-height: 4rem;
+    }
+
+    .main aside .generation-selection .generation-selection-header h3 {
+        align-self: center;
+        min-width: .5rem;
+    }
+
+    .main aside .generation-selection .generations {
+        background: transparent;
+        border-bottom: var(--pLineWith) solid var(--pBlue);
+        border-radius: 0;
+        margin: 0 2rem;
+    }
+
+    .main aside .generation-selection .generations:hover {
+        background-color: var(--pTransLightGray);
+    }
+
+    .main aside .generation-selection .generation-8 {
+        margin-bottom: 3rem;
+    }
+
+    .main .pokemon-selection {
+        margin: 0 2rem;
+        grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    }
+
+    .main .pokemon-selection .poke-container {
+        width: 10rem;
+        height: 10rem;
+        padding-top: .2rem;
+    }
+
+    .main .pokemon-selection .poke-container .circle {
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+}
+
+@media screen and (max-width: 300px) {
+
+    .main aside .generation-selection .generation-selection-header h3 {
+        display: none;
+    }
+}
