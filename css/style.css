@@ -448,8 +448,13 @@ a:hover {
     }
 
     .main .pokemon-selection .poke-container .circle {
-        width: 2rem;
-        height: 2rem;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .main .pokemon-selection .poke-container .circle::before {
+        width: 1rem;
+        height: 1rem;
     }
 
     .main .pokemon-selection .poke-container .poke-img {
@@ -459,6 +464,6 @@ a:hover {
     }
 
     .main .pokemon-selection .poke-container .poke-name {
-        font-size: 1rem;
+        font-size: 1.3rem;
     }
 }
