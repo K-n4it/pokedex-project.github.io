@@ -265,7 +265,8 @@ header .change-theme {
     width: auto;
     color: var(--pYellow);
     text-align: center;
-    font-size: 30px;
+    text-shadow: 2px 2px 2px var(--pBlack);
+    font-size: 2rem;
     position: absolute;
     bottom: 0%;
     right: 20%;
@@ -291,7 +292,6 @@ header .change-theme {
 }
 
 footer {
-
     height: 15rem;
     text-align: center;
     border-top: var(--pLineWith) solid var(--pYellow);
@@ -362,6 +362,7 @@ a:hover {
     header .title {
         width: 12rem;
         height: 5rem;
+        cursor: default
     }
 
     header .change-theme-button {
@@ -406,6 +407,11 @@ a:hover {
         font-size: 2rem;
     }
 
+    .main aside .generation-selection .generation-selection-header .generation-selection-header-title {
+        font-size: 1.2rem;
+        align-self: center;
+    }
+
     .main aside .generation-selection .generation-selection-header .change-theme-button {
         min-width: 2rem;
         width: 4rem;
@@ -430,17 +436,28 @@ a:hover {
 
     .main .pokemon-selection {
         margin: 0 2rem;
-        grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
     }
 
     .main .pokemon-selection .poke-container {
-        width: 10rem;
-        height: 10rem;
+        width: 6rem;
+        height: 6rem;
         padding-top: .2rem;
+        cursor: default
     }
 
     .main .pokemon-selection .poke-container .circle {
-        width: 4.5rem;
-        height: 4.5rem;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .main .pokemon-selection .poke-container .poke-img {
+        width: 5rem;
+        height: 5rem;
+        cursor: default
+    }
+
+    .main .pokemon-selection .poke-container .poke-name {
+        font-size: 1rem;
     }
 }
