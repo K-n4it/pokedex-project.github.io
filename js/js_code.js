@@ -99,11 +99,9 @@ const observePoke = entries => {
 
     let currentGen = localStorage.getItem("currentGen");
     if (entry.isIntersecting && currentGen == "all") {
-        console.log(currentAllPoke);
         addAllPokemons(selectPokemon);
     } else if (entry.isIntersecting && currentGen !== "all") {
         let testVar = checkGenLength(currentGen, addGenPokemons, false);
-        console.log(currentGenPoke);
         testVar();
     }
 }
@@ -113,7 +111,6 @@ const pokeObserver = new IntersectionObserver(observePoke);
 const addAllPokemons = async callback => {
     let maxPokemons = 1008;
     localStorage.setItem("currentGen", "all");
-    console.clear();
     loader.removeAttribute("hidden");
 
     for (let i = 1; i < 20 && maxPokemons > currentAllPoke; i++) { // 1008 POKEMON ENTRIES IN TOTAL
@@ -136,8 +133,6 @@ const addAllPokemons = async callback => {
                     const pokeballContainer = document.querySelectorAll(".poke-container");
 
                     callback(pokeballContainer, "all");
-
-                    console.clear();
                 }
             })
             .catch(e => {
@@ -280,8 +275,6 @@ const loadCardInfo = async () => {
             sideData[0].textContent = `Pokedex number: ${pokeOrder}`;
             sideData[1].textContent = `Pokemon's height: ${pokeHeight} m`;
             sideData[2].textContent = `Pokemon's weight: ${pokeWeight} kg`;
-            
-            console.log(response);
         })
     }
     else {}
