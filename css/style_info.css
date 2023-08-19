@@ -196,11 +196,10 @@ body::-webkit-scrollbar-thumb:hover {
 
     .main .info-card {
         flex-direction: column;
-        width: 20rem;
-        min-width: 15rem;
+        width: auto;
         max-height: none;
         margin: auto;
-        padding: 2rem 1rem;
+        padding: 2rem;
         align-items: center;
         text-align: center;
         font-family: Handjet, Calibri, Sans-serif;
